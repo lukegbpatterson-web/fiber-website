@@ -1,0 +1,4 @@
+# Claude Code local tooling (machine-specific, not part of the site)
+.claude/
+.impeccable/
+.mcp.json

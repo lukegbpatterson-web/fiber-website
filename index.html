@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ocima — A pre-meal ritual for satiety & digestion</title>
+<meta name="description" content="Ocima is a pre-meal fiber blend powered by basil seeds — for satiety, smoother digestion, and a calmer gut. Join the waitlist." />
+
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="Ocima — Nature's blueprint for better eating" />
+<meta property="og:description" content="A pre-meal fiber scoop, powered by basil seeds. For satiety, digestion, and a calmer gut. Join the waitlist." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   OCIMA — landing page
+   Edit copy freely. Sections you'll likely want to change are
+   marked with  <!-- EDIT: ... -->  through the markup.
+   ============================================================ */
+
+:root{
+  --ink:#21362A;        /* deep forest green — primary text */
+  --ink-soft:#4C5E52;   /* muted body text */
+  --sage:#A9C1A6;
+  --sage-deep:#7E9A7C;
+  --sand:#E7D6B6;
+  --sand-deep:#D9C29A;
+  --teal:#79BDB4;
+  --teal-deep:#5EA79E;
+  --paper:#F4F2EA;      /* warm off-white page */
+  --paper-2:#ECEEE2;    /* faintly greener band */
+  --white:#FBFAF5;
+  --silver:#C3C7BA;
+
+  --maxw:1160px;
+  --gutter:clamp(20px, 5vw, 64px);
+
+  --step--1:clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  --step-3: clamp(2rem, 1.5rem + 2.4vw, 3.4rem);
+  --step-4: clamp(2.4rem, 1.6rem + 2.6vw, 4.3rem);
+
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Hanken Grotesk", system-ui, sans-serif;
+  font-size:var(--step-0);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+h1,h2,h3{
+  font-family:"Newsreader", Georgia, serif;
+  font-weight:500;
+  line-height:1.04;
+  letter-spacing:-0.015em;
+  margin:0;
+  color:var(--ink);
+}
+p{margin:0;}
+a{color:inherit;}
+img,svg{display:block;max-width:100%;}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);}
+.eyebrow{
+  font-size:var(--step--1);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--sage-deep);
+}
+.serif-italic{font-family:"Newsreader",serif;font-style:italic;font-weight:400;}
+
+/* ---------- focus & motion floor ---------- */
+:where(a,button,input):focus-visible{
+  outline:2px solid var(--teal-deep);
+  outline-offset:3px;
+  border-radius:6px;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none !important;transition:none !important;}
+}
+
+/* ============================ NAV ============================ */
+.nav{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:saturate(1.1) blur(8px);
+  background:color-mix(in srgb, var(--paper) 78%, transparent);
+  border-bottom:1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:66px;
+}
+.brand{
+  font-family:"Newsreader",serif;font-weight:600;font-size:1.5rem;
+  letter-spacing:-0.01em;color:var(--ink);text-decoration:none;
+}
+.brand span{color:var(--sage-deep);}
+.nav-cta{
+  font-size:var(--step--1);font-weight:600;letter-spacing:.02em;
+  text-decoration:none;color:var(--ink);
+  padding:.55rem 1rem;border:1px solid color-mix(in srgb,var(--ink) 22%,transparent);
+  border-radius:100px;transition:background .3s var(--ease), color .3s var(--ease);
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper);}
+
+/* ============================ HERO ============================ */
+.hero{
+  position:relative;
+  padding-block:clamp(24px,4vw,56px) clamp(30px,5vw,60px);
+  overflow:hidden;
+}
+#seeds{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;
+}
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);
+  align-items:center;
+}
+.hero-copy{max-width:44ch;}
+.hero h1{
+  font-size:var(--step-4);
+  margin-top:1.1rem;
+  font-weight:400;              /* light + very large = high-contrast display */
+  letter-spacing:-0.028em;
+}
+.hero h1 em{font-style:italic;color:var(--sage-deep);font-weight:400;}
+.hero-sub{
+  margin-top:1.4rem;font-size:var(--step-1);line-height:1.5;
+  color:var(--ink-soft);max-width:40ch;
+}
+.hero-sub b{color:var(--ink);font-weight:600;}
+
+/* Reveal helpers — content is VISIBLE by default. JS hides then animates it in,
+   with a failsafe below so nothing can ever stay hidden if the ticker never runs
+   (e.g. GSAP fails to load, or the tab loads in the background). */
+.reveal{opacity:1;}
+
+/* -------- email form -------- */
+.signup{margin-top:2rem;max-width:440px;}
+.field{
+  display:flex;gap:.5rem;background:var(--white);
+  border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);
+  border-radius:100px;padding:.4rem .4rem .4rem 1.2rem;
+  box-shadow:0 14px 40px -28px rgba(33,54,42,.6);
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.field:focus-within{
+  border-color:var(--teal-deep);
+  box-shadow:0 18px 46px -26px rgba(33,54,42,.6);
+}
+.field input{
+  flex:1;border:0;background:transparent;font:inherit;color:var(--ink);
+  min-width:0;padding-block:.55rem;
+}
+.field input::placeholder{color:color-mix(in srgb,var(--ink) 42%,transparent);}
+.field input:focus{outline:none;}
+.btn{
+  border:0;cursor:pointer;font:inherit;font-weight:600;
+  background:var(--ink);color:var(--paper);
+  padding:.7rem 1.4rem;border-radius:100px;white-space:nowrap;
+  transition:transform .2s var(--ease), background .3s var(--ease);
+}
+.btn:hover{background:var(--teal-deep);transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+.form-note{margin-top:.8rem;font-size:var(--step--1);color:var(--ink-soft);padding-left:.4rem;}
+.form-success{
+  margin-top:1rem;padding:1rem 1.2rem;border-radius:16px;
+  background:color-mix(in srgb,var(--teal) 26%,var(--white));
+  border:1px solid color-mix(in srgb,var(--teal-deep) 40%,transparent);
+  color:var(--ink);font-weight:500;
+}
+[hidden]{display:none !important;}
+
+/* -------- hero product: floating cutout, no card box -------- */
+.hero-product{position:relative;justify-self:center;width:min(100%,340px);}
+.jar-wrap{
+  position:relative;z-index:1;aspect-ratio:483/600;
+  animation:float 7s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.jar-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;}
+.jar-vector{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;}
+.jar-vector svg{width:88%;height:auto;}
+
+/* ============================ WAVE DIVIDER ============================ */
+.wave{display:block;width:100%;height:clamp(46px,7vw,96px);}
+.wave svg{width:100%;height:100%;}
+
+/* generic section */
+.section{padding-block:clamp(64px,9vw,120px);}
+.section.tint{background:var(--paper-2);}
+.section-head{max-width:52ch;margin-bottom:clamp(32px,5vw,60px);}
+.section-head h2{font-size:var(--step-3);margin-top:.8rem;}
+.section-head p{margin-top:1rem;color:var(--ink-soft);font-size:var(--step-1);line-height:1.5;}
+
+/* ============================ BENEFITS ============================ */
+.benefits{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:clamp(20px,3vw,40px);
+}
+.benefit{border-top:1px solid color-mix(in srgb,var(--ink) 16%,transparent);padding-top:1.2rem;}
+.benefit .ic{color:var(--sage-deep);margin-bottom:1rem;}
+.benefit h3{font-size:var(--step-1);font-weight:600;}
+.benefit p{margin-top:.5rem;color:var(--ink-soft);font-size:var(--step--1);line-height:1.55;}
+
+/* ============================ RITUAL ============================ */
+.ritual{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px);}
+.step{position:relative;padding-top:2.6rem;}
+.step .no{
+  position:absolute;top:0;left:0;
+  font-family:"Newsreader",serif;font-style:italic;font-size:1.4rem;
+  color:var(--sand-deep);
+}
+.step h3{font-size:var(--step-2);font-weight:500;}
+.step p{margin-top:.7rem;color:var(--ink-soft);}
+
+/* ============================ STATS ============================ */
+.stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);
+  border-radius:22px;overflow:hidden;background:var(--white);
+}
+.stat{padding:clamp(28px,4vw,44px);text-align:center;}
+.stat + .stat{border-left:1px solid color-mix(in srgb,var(--ink) 12%,transparent);}
+.stat .num{font-family:"Newsreader",serif;font-size:var(--step-3);color:var(--ink);line-height:1;}
+.stat .lab{margin-top:.6rem;font-size:var(--step--1);letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;}
+
+/* ============================ ABOUT ============================ */
+.about-mission{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);
+  align-items:start;
+}
+.mission-body p + p{margin-top:1.1rem;}
+.mission-body{font-size:var(--step-1);line-height:1.6;color:var(--ink);}
+.mission-body .lead{font-family:"Newsreader",serif;font-size:var(--step-2);line-height:1.25;font-weight:400;}
+
+.founders{
+  margin-top:clamp(48px,6vw,80px);
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);
+}
+.founder{}
+.founder-photo{
+  position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;
+  background:linear-gradient(160deg,var(--sage) 0%, var(--teal) 120%);
+  box-shadow:0 30px 60px -40px rgba(33,54,42,.7);
+}
+.founder-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;}
+.founder-photo .ph{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.85;}
+.founder h3{margin-top:1.2rem;font-size:var(--step-2);font-weight:500;}
+.founder .role{font-size:var(--step--1);letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-top:.3rem;}
+.founder p.bio{margin-top:.8rem;color:var(--ink-soft);}
+
+/* ============================ FINAL CTA ============================ */
+.final{
+  position:relative;text-align:center;color:var(--paper);
+  background:radial-gradient(120% 120% at 50% 0%, var(--sage-deep) 0%, var(--ink) 70%);
+  border-radius:28px;padding:clamp(48px,7vw,88px) var(--gutter);
+  overflow:hidden;
+}
+.final h2{color:var(--paper);font-size:var(--step-3);}
+.final .eyebrow{color:color-mix(in srgb,var(--sage) 80%,white);}
+.final p.lead{margin:1rem auto 0;max-width:44ch;color:color-mix(in srgb,var(--paper) 80%,transparent);font-size:var(--step-1);}
+.final .signup{margin-inline:auto;}
+.final .field{background:color-mix(in srgb,var(--white) 96%,transparent);border-color:transparent;}
+.final .btn{background:var(--sand);color:var(--ink);}
+.final .btn:hover{background:var(--white);}
+.final .form-note{color:color-mix(in srgb,var(--paper) 70%,transparent);}
+
+/* ============================ FOOTER ============================ */
+.footer{padding-block:clamp(40px,5vw,64px) clamp(28px,4vw,44px);}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer .brand{font-size:1.3rem;}
+.footer .tag{font-family:"Newsreader",serif;font-style:italic;color:var(--ink-soft);}
+.footer .legal{font-size:var(--step--1);color:var(--ink-soft);}
+.footer a.social{text-decoration:none;font-weight:600;font-size:var(--step--1);border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent);padding-bottom:2px;}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;text-align:left;}
+  .hero-copy{max-width:none;order:1;}
+  .hero-product{order:2;width:min(74%,300px);margin-top:14px;}
+  .benefits{grid-template-columns:1fr 1fr;}
+  .ritual{grid-template-columns:1fr;gap:2rem;}
+  .about-mission{grid-template-columns:1fr;}
+  .founders{grid-template-columns:1fr;max-width:420px;}
+}
+@media (max-width:540px){
+  .benefits{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr;}
+  .stat + .stat{border-left:0;border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent);}
+  .field{flex-wrap:wrap;border-radius:20px;padding:.6rem;}
+  .field input{padding-left:.8rem;}
+  .btn{width:100%;}
+  .nav-cta{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Ocima</a>
+    <a class="nav-cta" href="#top">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <canvas id="seeds" aria-hidden="true"></canvas>
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Pre-meal fiber · powered by basil seeds</p>
+        <h1 class="reveal">One scoop, <em>before</em> every meal.</h1>
+        <!-- EDIT: hero subhead -->
+        <p class="hero-sub reveal">
+          Ocima is a pre-meal fiber blend that helps you feel full,
+          digest with ease, and settle a restless gut.
+          <b>Eight grams of fiber, with no added sugar.</b>
+        </p>
+
+        <!-- EDIT: waitlist copy -->
+        <form class="signup reveal" id="join" novalidate>
+          <label class="visually-hidden" for="email-hero" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+          <div class="field">
+            <input id="email-hero" name="email" type="email" inputmode="email"
+                   autocomplete="email" placeholder="you@email.com" required />
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-note">We're still in the kitchen. We'll send one note when Ocima is ready, and nothing else.</p>
+        </form>
+        <p class="form-success reveal" id="success-hero" hidden>
+          You're on the list. We'll be in touch when the first batch is ready.
+        </p>
+      </div>
+
+      <!-- Hero product: a floating cutout (background removed). Drop a new
+           transparent render at assets/product-cutout.png to swap it; otherwise
+           the vector jar shows. -->
+      <div class="hero-product reveal">
+        <div class="jar-wrap">
+          <img class="jar-photo" src="assets/product-cutout.png" alt="Ocima pre-meal fiber blend"
+               onload="this.parentElement.querySelector('.jar-vector').style.display='none'"
+               onerror="this.dataset.f=(+this.dataset.f||0)+1;
+                 if(this.dataset.f==1){this.src='assets/product.webp';}
+                 else if(this.dataset.f==2){this.src='assets/product.png';}
+                 else if(this.dataset.f==3){this.src='assets/product.jpg';}
+                 else {this.remove();}" />
+          <!-- Vector fallback jar (shown until you add a real photo) -->
+          <div class="jar-vector">
+          <svg viewBox="0 0 400 520" role="img" aria-label="Ocima jar" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#DfE2D8"/><stop offset=".5" stop-color="#C3C7BA"/><stop offset="1" stop-color="#A9AEA0"/>
+              </linearGradient>
+              <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#B3C8B0"/><stop offset="1" stop-color="#9DB79A"/>
+              </linearGradient>
+              <clipPath id="jarClip"><rect x="70" y="120" width="260" height="378" rx="26"/></clipPath>
+            </defs>
+
+            <!-- body -->
+            <rect x="70" y="120" width="260" height="378" rx="26" fill="url(#body)"/>
+            <g clip-path="url(#jarClip)">
+              <!-- wavy bands echoing the label -->
+              <path d="M70 350 C 130 320, 200 390, 270 352 S 360 320, 400 348 L400 420 L70 420 Z" fill="#E7D6B6" opacity=".92"/>
+              <path d="M70 392 C 140 368, 190 430, 268 396 S 360 372, 400 398 L400 470 L70 470 Z" fill="#79BDB4" opacity=".8"/>
+              <path d="M70 430 C 120 410, 210 456, 280 432 S 360 414, 400 436 L400 500 L70 500 Z" fill="#B3C8B0" opacity=".9"/>
+            </g>
+            <rect x="70" y="120" width="260" height="378" rx="26" fill="none" stroke="#8AA487" stroke-width="1.5" opacity=".5"/>
+
+            <!-- lid -->
+            <rect x="66" y="70" width="268" height="62" rx="16" fill="url(#lid)"/>
+            <ellipse cx="200" cy="72" rx="134" ry="16" fill="#E3E6DC"/>
+            <rect x="66" y="118" width="268" height="8" rx="4" fill="#9BA091" opacity=".7"/>
+
+            <!-- wordmark -->
+            <text x="98" y="212" font-family="Newsreader, serif" font-weight="600" font-size="58" fill="#21362A">Ocima</text>
+            <text x="100" y="238" font-family="Hanken Grotesk, sans-serif" font-weight="600" font-size="13" letter-spacing="1.5" fill="#3B4E41">PRE-MEAL FIBER BLEND</text>
+
+            <!-- badge -->
+            <ellipse cx="288" cy="196" rx="34" ry="42" fill="#FBFAF5"/>
+            <text x="288" y="188" text-anchor="middle" font-family="Newsreader,serif" font-size="15" fill="#21362A">0g</text>
+            <text x="288" y="203" text-anchor="middle" font-family="Hanken Grotesk,sans-serif" font-size="10" fill="#3B4E41">Sugar</text>
+            <line x1="268" y1="196" x2="308" y2="196" stroke="#C9B896" stroke-width="1"/>
+            <text x="288" y="216" text-anchor="middle" font-family="Newsreader,serif" font-size="15" fill="#21362A">8g</text>
+            <text x="288" y="230" text-anchor="middle" font-family="Hanken Grotesk,sans-serif" font-size="10" fill="#3B4E41">Fiber</text>
+
+            <!-- leaf + seeds -->
+            <g transform="translate(150 268)">
+              <path d="M40 8 C 8 24, 2 66, 30 92 C 60 70, 70 30, 40 8 Z" fill="#6FA46A"/>
+              <path d="M40 8 C 30 40, 30 70, 30 92" stroke="#3E6B3B" stroke-width="2.4" fill="none"/>
+              <path d="M36 34 L20 30 M35 52 L18 52 M33 70 L22 74" stroke="#3E6B3B" stroke-width="1.6" fill="none"/>
+              <g fill="#4F7E4A">
+                <ellipse cx="86" cy="70" rx="3" ry="2" transform="rotate(20 86 70)"/>
+                <ellipse cx="98" cy="60" rx="3" ry="2" transform="rotate(-14 98 60)"/>
+                <ellipse cx="104" cy="76" rx="3" ry="2" transform="rotate(28 104 76)"/>
+                <ellipse cx="90" cy="84" rx="3" ry="2" transform="rotate(-8 90 84)"/>
+                <ellipse cx="112" cy="66" rx="3" ry="2" transform="rotate(12 112 66)"/>
+                <ellipse cx="100" cy="90" rx="3" ry="2" transform="rotate(34 100 90)"/>
+                <ellipse cx="120" cy="80" rx="3" ry="2" transform="rotate(-20 120 80)"/>
+              </g>
+            </g>
+
+            <text x="200" y="418" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="15" fill="#3B4E41">powered by basil seeds</text>
+          </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- wave: paper -> tint -->
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0 40 C 240 90, 480 10, 720 40 S 1200 90, 1440 44 L1440 100 L0 100 Z" fill="#ECEEE2"/>
+      <path d="M0 60 C 300 100, 560 30, 820 60 S 1240 96, 1440 66 L1440 100 L0 100 Z" fill="#E7D6B6" opacity=".55"/>
+    </svg>
+  </div>
+
+  <!-- ============================ BENEFITS ============================ -->
+  <section class="section tint">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why a scoop first</p>
+        <h2>Fiber, timed right, changes the meal that follows.</h2>
+      </div>
+      <div class="benefits">
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c3 3 4 6 4 9a4 4 0 0 1-8 0c0-3 1-6 4-9Z"/><path d="M12 12v9"/></svg>
+          <h3>Digestion</h3>
+          <p>Soluble fiber slows things down, so meals move through smoothly instead of all at once.</p>
+        </div>
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M8 13a4 4 0 0 0 8 0"/></svg>
+          <h3>Satiety</h3>
+          <p>Basil seeds swell into a gentle gel, so you feel full before the first bite instead of after.</p>
+        </div>
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="9" r="2.5"/><circle cx="16" cy="7" r="2"/><circle cx="15" cy="16" r="3"/><path d="M9 10l4 4M9 9l5-1"/></svg>
+          <h3>Gut microbiome</h3>
+          <p>Prebiotic fiber is food for the good bacteria that keep your gut in balance.</p>
+        </div>
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 14c0-4 3.5-8 8-8s8 4 8 8"/><path d="M4 14a8 8 0 0 0 16 0"/><path d="M9 14h.01M15 14h.01"/></svg>
+          <h3>Bloat relief</h3>
+          <p>A steadier, more regular rhythm means fewer heavy, uncomfortable afternoons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- wave: tint -> paper -->
+  <div class="wave" aria-hidden="true" style="transform:scaleY(-1)">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0 40 C 240 90, 480 10, 720 40 S 1200 90, 1440 44 L1440 100 L0 100 Z" fill="#F4F2EA"/>
+      <path d="M0 62 C 320 100, 540 34, 820 62 S 1240 96, 1440 66 L1440 100 L0 100 Z" fill="#79BDB4" opacity=".4"/>
+    </svg>
+  </div>
+
+  <!-- ============================ RITUAL ============================ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The ritual</p>
+        <h2>Three quiet minutes before you eat.</h2>
+        <p>A small, calming pause before you eat that quietly sets up the whole meal.</p>
+      </div>
+      <div class="ritual">
+        <div class="step reveal">
+          <span class="no">i</span>
+          <h3>Scoop</h3>
+          <p>One level scoop of Ocima into a glass of water.</p>
+        </div>
+        <div class="step reveal">
+          <span class="no">ii</span>
+          <h3>Stir</h3>
+          <p>Give it a stir and wait ten to fifteen minutes before your meal.</p>
+        </div>
+        <div class="step reveal">
+          <span class="no">iii</span>
+          <h3>Sip</h3>
+          <p>The basil seeds bloom into a soft gel, so you arrive at the table already a step ahead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STATS ============================ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><div class="num">0g</div><div class="lab">Added sugar</div></div>
+        <div class="stat"><div class="num">8g</div><div class="lab">Fiber per scoop</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- wave: paper -> tint -->
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0 46 C 260 88, 520 16, 760 46 S 1220 92, 1440 50 L1440 100 L0 100 Z" fill="#ECEEE2"/>
+      <path d="M0 66 C 300 100, 560 40, 820 66 S 1240 96, 1440 70 L1440 100 L0 100 Z" fill="#E7D6B6" opacity=".5"/>
+    </svg>
+  </div>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="section tint" id="about">
+    <div class="wrap">
+      <div class="about-mission">
+        <div class="section-head reveal" style="margin-bottom:0">
+          <p class="eyebrow">Our mission</p>
+          <h2>Nature's blueprint for better eating.</h2>
+        </div>
+        <!-- EDIT: your mission statement -->
+        <div class="mission-body reveal">
+          <p class="lead">We started Ocima with a simple belief: the smallest habits, done before the meal, do the most for how you feel after it.</p>
+          <p>Modern eating is fast, processed, and light on the one thing our guts quietly depend on: fiber. Ocima is our answer. A single, honest scoop of basil seeds that turns a glass of water into a few minutes of foresight, with no added sugar or filler and nothing hidden in the fine print.</p>
+          <p>We're two brothers building the thing we wished existed, and we'd love for you to be part of it from the very first batch.</p>
+        </div>
+      </div>
+
+      <!-- ============================ FOUNDERS ============================ -->
+      <div class="founders">
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/luke.jpg" alt="Luke Patterson" onerror="this.style.display='none'"/>
+            <svg class="ph" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#9DB79A"/><circle cx="50" cy="48" r="20" fill="#F4F2EA" opacity=".55"/><path d="M18 125 C 18 92, 82 92, 82 125 Z" fill="#F4F2EA" opacity=".55"/></svg>
+          </div>
+          <h3>Luke Patterson</h3>
+          <p class="role">Co-founder</p>
+          <p class="bio">I became passionate about health after being diagnosed with chronic fatigue syndrome in 2022. I also dealt with gut issues for years, and recovered from both candida and H. pylori. After seeing what it did for me, I want to make the healing power of pre-meal fiber more accessible than ever.</p>
+        </article>
+
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/will.jpg" alt="Will Patterson" onerror="this.style.display='none'"/>
+            <svg class="ph" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#79BDB4"/><circle cx="50" cy="48" r="20" fill="#F4F2EA" opacity=".55"/><path d="M18 125 C 18 92, 82 92, 82 125 Z" fill="#F4F2EA" opacity=".55"/></svg>
+          </div>
+          <h3>Will Patterson</h3>
+          <p class="role">Co-founder</p>
+          <p class="bio">After struggling to meet my daily fiber goal, I spent hundreds of hours researching, creating, and iterating my own personal pre-meal fiber formula. Now I'm excited to share my creation with the world, with Ocima.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- wave: tint -> paper -->
+  <div class="wave" aria-hidden="true" style="transform:scaleY(-1)">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0 46 C 260 88, 520 16, 760 46 S 1220 92, 1440 50 L1440 100 L0 100 Z" fill="#F4F2EA"/>
+    </svg>
+  </div>
+
+  <!-- ============================ FINAL CTA ============================ -->
+  <section class="section" style="padding-block:clamp(20px,3vw,40px) clamp(64px,9vw,120px)">
+    <div class="wrap">
+      <div class="final reveal">
+        <p class="eyebrow">Be first</p>
+        <h2>Good digestion starts before eating.</h2>
+        <p class="lead">We're getting Ocima ready. Join the list to try the first batch and help shape what it becomes.</p>
+        <form class="signup" id="join2" novalidate>
+          <label style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);" for="email-final">Email address</label>
+          <div class="field">
+            <input id="email-final" name="email" type="email" inputmode="email"
+                   autocomplete="email" placeholder="you@email.com" required />
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-note">We'll email once when we launch, and never share your address.</p>
+        </form>
+        <p class="form-success" id="success-final" hidden>You're on the list. Talk soon.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a class="brand" href="#top">Ocima</a>
+      <div class="tag">Nature's blueprint for better eating.</div>
+    </div>
+    <div style="text-align:right">
+      <!-- EDIT: social + contact -->
+      <a class="social" href="#" aria-label="Ocima on Instagram">Instagram</a>
+      <div class="legal" style="margin-top:.5rem">© <span id="year"></span> Ocima. These statements have not been evaluated by the FDA.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ SCRIPTS ============================ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* =====================================================================
+   CONFIG — connect your email list here.
+   Leave FORM_ENDPOINT empty to run in demo mode (shows a success state
+   without sending anywhere). To collect emails for real, paste a form
+   endpoint from Formspree, ConvertKit, Mailchimp, Buttondown, etc.
+   Most accept a POST with a { email } body — see notes below.
+   ===================================================================== */
+const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
+
+document.getElementById("year").textContent = new Date().getFullYear();
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* -------------------- email capture -------------------- */
+function wireForm(formId, successId){
+  const form = document.getElementById(formId);
+  const success = document.getElementById(successId);
+  if(!form) return;
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const input = form.querySelector('input[type="email"]');
+    if(!input.checkValidity()){ input.reportValidity(); return; }
+    const email = input.value.trim();
+    const btn = form.querySelector("button");
+    btn.disabled = true; btn.textContent = "Joining…";
+    try{
+      if(FORM_ENDPOINT){
+        await fetch(FORM_ENDPOINT, {
+          method:"POST",
+          headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+          body: JSON.stringify({ email })
+        });
+      }
+      form.setAttribute("hidden","");
+      if(success){ success.hidden = false; success.style.opacity = 1; success.style.transform = "none"; }
+    }catch(err){
+      btn.disabled = false; btn.textContent = "Join the waitlist";
+      alert("Something went wrong — please try again.");
+    }
+  });
+}
+wireForm("join","success-hero");
+wireForm("join2","success-final");
+
+/* -------------------- scroll reveals (GSAP) -------------------- */
+if(!reduceMotion && window.gsap){
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hide first via inline styles (so we can always clear them again).
+  gsap.set(".reveal", { opacity:0, y:18 });
+
+  // Hero load sequence.
+  gsap.to(".hero .reveal", { opacity:1, y:0, duration:1, ease:"power3.out", stagger:0.12, delay:0.15 });
+
+  // Section reveals on scroll.
+  gsap.utils.toArray(".section .reveal").forEach((el)=>{
+    if(el.closest(".hero")) return;
+    gsap.to(el, {
+      opacity:1, y:0, duration:0.9, ease:"power3.out",
+      scrollTrigger:{ trigger:el, start:"top 85%" }
+    });
+  });
+
+  // Failsafe: if the ticker never advances (backgrounded tab, throttled rAF),
+  // reveal everything so critical content is never left hidden.
+  setTimeout(()=>{
+    if(gsap.globalTimeline.totalProgress() === 0){
+      gsap.set(".reveal", { clearProps:"opacity,transform" });
+    }
+  }, 2500);
+}
+
+/* -------------------- basil-seed drift (Three.js) -------------------- */
+(function seeds(){
+  const canvas = document.getElementById("seeds");
+  if(reduceMotion || !window.THREE || !canvas) return;
+  const hero = canvas.parentElement;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+  camera.position.z = 30;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const COUNT = 70;
+  const geo = new THREE.BufferGeometry();
+  const positions = new Float32Array(COUNT*3);
+  const speed = new Float32Array(COUNT);
+  const drift = new Float32Array(COUNT);
+  for(let i=0;i<COUNT;i++){
+    positions[i*3]   = (Math.random()-0.5)*70;
+    positions[i*3+1] = (Math.random()-0.5)*50;
+    positions[i*3+2] = (Math.random()-0.5)*20;
+    speed[i] = 0.6 + Math.random()*0.9;
+    drift[i] = Math.random()*Math.PI*2;
+  }
+  geo.setAttribute("position", new THREE.BufferAttribute(positions,3));
+
+  // soft round sprite so seeds read as gentle specks, not squares
+  const c = document.createElement("canvas"); c.width=c.height=64;
+  const ctx = c.getContext("2d");
+  const g = ctx.createRadialGradient(32,32,0,32,32,32);
+  g.addColorStop(0,"rgba(94,127,74,0.9)");
+  g.addColorStop(1,"rgba(94,127,74,0)");
+  ctx.fillStyle=g; ctx.fillRect(0,0,64,64);
+  const sprite = new THREE.CanvasTexture(c);
+
+  const mat = new THREE.PointsMaterial({
+    size:1.5, map:sprite, transparent:true, depthWrite:false,
+    blending:THREE.NormalBlending, opacity:0.55
+  });
+  const points = new THREE.Points(geo, mat);
+  scene.add(points);
+
+  function resize(){
+    const w = hero.clientWidth || window.innerWidth;
+    const h = hero.clientHeight || window.innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+    renderer.render(scene, camera); // paint one frame immediately, even if rAF is throttled
+  }
+  resize();
+  window.addEventListener("resize", resize);
+  window.addEventListener("load", resize);
+
+  const pos = geo.attributes.position.array;
+  let t = 0;
+  function animate(){
+    t += 0.006;
+    for(let i=0;i<COUNT;i++){
+      pos[i*3+1] += speed[i]*0.02;                 // gentle rise
+      pos[i*3]   += Math.sin(t + drift[i])*0.01;   // lateral sway
+      if(pos[i*3+1] > 26){ pos[i*3+1] = -26; pos[i*3] = (Math.random()-0.5)*70; }
+    }
+    geo.attributes.position.needsUpdate = true;
+    points.rotation.z = Math.sin(t*0.2)*0.03;
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+</script>
+</body>
+</html>
