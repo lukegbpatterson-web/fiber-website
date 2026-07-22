@@ -619,11 +619,11 @@ img,svg{display:block;max-width:100%;}
 /* =====================================================================
    CONFIG — connect your email list here.
    Leave FORM_ENDPOINT empty to run in demo mode (shows a success state
-   without sending anywhere). To collect emails for real, paste a form
-   endpoint from Formspree, ConvertKit, Mailchimp, Buttondown, etc.
-   Most accept a POST with a { email } body — see notes below.
+   without sending anywhere). Paste a Google Apps Script Web App URL
+   (see the paired Apps Script in google-apps-script/waitlist.gs) to
+   route submissions straight into a Google Sheet.
    ===================================================================== */
-const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxo6848fA-Ha-dFl9SZgPHUoTMDUeicscTcBu5QxBKrLmskbefb-rzRLWY90CfIrBN8Tw/exec";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -642,10 +642,16 @@ function wireForm(formId, successId){
     btn.disabled = true; btn.textContent = "Joining…";
     try{
       if(FORM_ENDPOINT){
+        // Google Apps Script web apps don't send CORS headers, so the
+        // response can't be read from here — "no-cors" lets the POST go
+        // through anyway (fire-and-forget). Form-encoded body keeps this a
+        // "simple request" so the browser skips the CORS preflight, which
+        // Apps Script doesn't handle and would otherwise reject.
         await fetch(FORM_ENDPOINT, {
           method:"POST",
-          headers:{ "Content-Type":"application/json", "Accept":"application/json" },
-          body: JSON.stringify({ email })
+          mode:"no-cors",
+          headers:{ "Content-Type":"application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ email, source: window.location.href })
         });
       }
       form.setAttribute("hidden","");

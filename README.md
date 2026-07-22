@@ -27,14 +27,25 @@ Search `index.html` for `EDIT:` comments. The main ones:
 
 ## Connect the email list
 By default the form runs in **demo mode** (shows a success state, sends nothing).
-To collect real emails, open the `<script>` at the bottom of `index.html` and set:
+Submissions are wired to route into a Google Sheet via a small Apps Script
+(`google-apps-script/waitlist.gs`). To turn it on:
 
-```js
-const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxx";
-```
+1. Open the waitlist Google Sheet.
+2. **Extensions > Apps Script.**
+3. Delete any placeholder code, paste in the contents of `google-apps-script/waitlist.gs`.
+4. **Deploy > New deployment** → gear icon → **Web app**.
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+5. Click **Deploy**, authorize the permissions it asks for (it's your own script,
+   acting on your own sheet), and copy the resulting URL (ends in `/exec`).
+6. Paste that URL into `FORM_ENDPOINT` near the bottom of `index.html`:
+   ```js
+   const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycb.../exec";
+   ```
 
-It POSTs `{ "email": "..." }` as JSON. Works with **Formspree, Buttondown, ConvertKit,
-Mailchimp** (via a hosted endpoint/Zapier), or your own handler. Swap the URL and you're live.
+Each submission lands as a new row: timestamp, email, and the page URL it came from.
+If you ever edit the script after the first deploy, use **Manage deployments > Edit >
+New version** — saving alone doesn't update the live `/exec` URL.
 
 ## Deploy
 It's fully static — drag the folder into **Netlify** or **Vercel**, or push to **GitHub Pages**.
