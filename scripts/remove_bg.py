@@ -1,5 +1,5 @@
 """
-Remove the smooth mint-gradient background from the Ocima product photo.
+Remove the smooth mint-gradient background from the bayzl product photo.
 
 Naive color-distance keying fails here: the jar's own label has pale sage
 sections that are close in color to the gradient backdrop, so simple

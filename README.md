@@ -1,6 +1,6 @@
-# Ocima — landing page
+# bayzl — landing page
 
-A single-file, waitlist landing page for Ocima (pre-meal fiber blend). Built to be
+A single-file, waitlist landing page for bayzl (pre-meal fiber blend). Built to be
 simple, elegant, and easy to host anywhere.
 
 - **Stack:** one `index.html` (inline CSS + JS). GSAP + ScrollTrigger + Three.js via CDN.
