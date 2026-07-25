@@ -201,15 +201,37 @@ img,svg{display:block;max-width:100%;}
 [hidden]{display:none !important;}
 
 /* -------- hero product: floating cutout, no card box -------- */
-.hero-product{position:relative;justify-self:center;width:min(100%,340px);}
+.hero-product{
+  position:relative;justify-self:center;width:min(100%,340px);
+  display:flex;flex-direction:column;align-items:center;gap:1.1rem;
+}
 .jar-wrap{
-  position:relative;z-index:1;aspect-ratio:960/1286;
+  position:relative;z-index:1;width:100%;aspect-ratio:960/1286;
   animation:float 7s ease-in-out infinite;
 }
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .jar-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;}
+.jar-photo.flavor-mango{opacity:0;}
 .jar-vector{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;}
 .jar-vector svg{width:88%;height:auto;}
+
+/* -------- flavor switch -------- */
+.flavor-switch{
+  display:inline-flex;gap:.25rem;padding:.3rem;
+  background:var(--white);border-radius:100px;
+  border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);
+  box-shadow:0 10px 26px -20px rgba(33,54,42,.5);
+}
+.flavor-btn{
+  display:flex;align-items:center;gap:.5rem;
+  border:0;background:transparent;cursor:pointer;font:inherit;
+  font-size:var(--step--1);font-weight:600;color:var(--ink-soft);
+  padding:.5rem 1rem;border-radius:100px;
+  transition:background .25s var(--ease), color .25s var(--ease);
+}
+.flavor-btn:hover{color:var(--ink);}
+.flavor-btn.is-active{background:var(--paper-2);color:var(--ink);}
+.flavor-dot{width:9px;height:9px;border-radius:50%;flex:none;}
 
 /* ============================ WAVE DIVIDER ============================ */
 .wave{display:block;width:100%;height:clamp(46px,7vw,96px);}
@@ -380,13 +402,15 @@ img,svg{display:block;max-width:100%;}
            the vector jar shows. -->
       <div class="hero-product reveal">
         <div class="jar-wrap">
-          <img class="jar-photo" src="assets/product-cutout.png" alt="bayzl pre-meal fiber blend"
+          <img class="jar-photo flavor-original" src="assets/product-cutout.png" alt="bayzl pre-meal fiber blend, original"
                onload="this.parentElement.querySelector('.jar-vector').style.display='none'"
                onerror="this.dataset.f=(+this.dataset.f||0)+1;
                  if(this.dataset.f==1){this.src='assets/product.webp';}
                  else if(this.dataset.f==2){this.src='assets/product.png';}
                  else if(this.dataset.f==3){this.src='assets/product.jpg';}
                  else {this.remove();}" />
+          <img class="jar-photo flavor-mango" src="assets/product-cutout-mango.webp" alt="bayzl pre-meal fiber blend, mango flavor"
+               onerror="this.remove(); document.querySelector('.flavor-btn[data-flavor=mango]')?.remove();" />
           <!-- Vector fallback jar (shown until you add a real photo) -->
           <div class="jar-vector">
           <svg viewBox="0 0 400 520" role="img" aria-label="bayzl jar" xmlns="http://www.w3.org/2000/svg">
@@ -446,6 +470,16 @@ img,svg{display:block;max-width:100%;}
             <text x="200" y="418" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="15" fill="#3B4E41">powered by basil seeds</text>
           </svg>
           </div>
+        </div>
+
+        <!-- EDIT: add a flavor here the same way once you have another mockup -->
+        <div class="flavor-switch" role="tablist" aria-label="Choose a flavor">
+          <button class="flavor-btn is-active" type="button" data-flavor="original" role="tab" aria-selected="true">
+            <span class="flavor-dot" style="background:#8AA487"></span>Original
+          </button>
+          <button class="flavor-btn" type="button" data-flavor="mango" role="tab" aria-selected="false">
+            <span class="flavor-dot" style="background:#E8C24B"></span>Mango
+          </button>
         </div>
       </div>
 
@@ -682,6 +716,41 @@ function wireForm(formId, successId){
 }
 wireForm("join","success-hero");
 wireForm("join2","success-final");
+
+/* -------------------- flavor switch -------------------- */
+(function flavorSwitch(){
+  const buttons = document.querySelectorAll(".flavor-btn");
+  const photos = { original: document.querySelector(".jar-photo.flavor-original"),
+                   mango: document.querySelector(".jar-photo.flavor-mango") };
+  if(!buttons.length || !photos.original || !photos.mango) return;
+
+  let current = "original";
+  buttons.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const next = btn.dataset.flavor;
+      if(next === current || !photos[next]) return;
+
+      buttons.forEach(b=>{
+        const active = b === btn;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      const outEl = photos[current], inEl = photos[next];
+      current = next;
+
+      if(reduceMotion || !window.gsap){
+        outEl.style.opacity = 0;
+        inEl.style.opacity = 1;
+        return;
+      }
+      gsap.to(outEl, { opacity:0, y:8, scale:.97, duration:.35, ease:"power2.inOut" });
+      gsap.fromTo(inEl,
+        { opacity:0, y:-8, scale:.97 },
+        { opacity:1, y:0, scale:1, duration:.5, ease:"power2.out", delay:.1 });
+    });
+  });
+})();
 
 /* -------------------- scroll reveals (GSAP) -------------------- */
 if(!reduceMotion && window.gsap){
