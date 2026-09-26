@@ -1,0 +1,166 @@
+/* ============================================================
+   Page 3 — "treat" theme, pulled from the "modern stick 2" mockup:
+   sunny lemon yellow, juicy lime, dark olive, chunky white logo.
+   Same layout and copy as the other pages; only the look changes:
+   fat soft display type, bold ink outlines with hard offset shadows
+   (sticker / candy-wrapper feel), candy-dot icons, colored blocks.
+   Loaded after styles.css.
+   ============================================================ */
+:root{
+  --font-display:"Fraunces", Georgia, serif;
+
+  --ink:#2B2D14;        /* dark olive from the box bottom */
+  --ink-soft:#575A22;
+  --sage:#C4DA45;       /* juicy lime */
+  --sage-deep:#567F0C;  /* leaf green for small accents (readable on cream) */
+  --sand:#FED539;       /* lemon (box top) */
+  --sand-deep:#F2B90C;
+  --teal:#E1EE7C;       /* light lime */
+  --teal-deep:#6C9A12;
+  --paper:#FFF7D0;      /* lemon cream */
+  --paper-2:#F1F5B4;    /* lime-cream band */
+  --white:#FFFDF0;
+
+  --tangerine:#FFB547;
+  --product-ratio:1500/879;
+  --nav-h:68px;
+}
+
+::selection{background:var(--sand);color:var(--ink);}
+
+/* ---------- type: fat, soft, a little wonky (echoes the box logo) ---------- */
+h1,h2,h3,.brand,.stat .num,.mission-body .lead,.footer .tag{
+  font-variation-settings:"SOFT" 100,"WONK" 1;
+}
+h1,h2{font-weight:800;letter-spacing:-0.025em;}
+h3{font-weight:700;}
+.brand{font-weight:800;font-size:1.65rem;letter-spacing:-0.02em;}
+.eyebrow{font-weight:700;letter-spacing:.18em;}
+.mission-body .lead{font-weight:600;}
+.footer .tag{font-weight:500;}
+
+.hero h1{
+  font-size:clamp(2rem, 1.2rem + 2.7vw, 3.3rem);
+  line-height:1.06;
+}
+.hero h1 em{
+  font-style:italic;font-weight:800;color:var(--ink);
+  background:linear-gradient(transparent 58%, var(--sand) 58%, var(--sand) 92%, transparent 92%);
+  padding:0 .08em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+.hero-sub{font-weight:500;}
+
+/* ---------- warm, sunny backdrop ---------- */
+.backdrop span{opacity:.75;}
+.backdrop span:nth-child(1){background:radial-gradient(circle at 30% 30%, var(--sand) 0%, transparent 70%);}
+.backdrop span:nth-child(2){background:radial-gradient(circle at 50% 50%, var(--sage) 0%, transparent 70%);}
+.backdrop span:nth-child(3){background:radial-gradient(circle at 50% 50%, var(--sand) 0%, transparent 70%);}
+
+/* ---------- nav ---------- */
+.nav{border-bottom:2px solid var(--ink);background:color-mix(in srgb, var(--paper) 88%, transparent);}
+.nav-cta{
+  background:var(--sand);border:2px solid var(--ink);font-weight:700;color:var(--ink);
+  box-shadow:0 3px 0 var(--ink);
+  transition:transform .2s var(--ease), background .25s var(--ease), color .25s var(--ease);
+}
+.nav-cta:hover{background:var(--ink);color:var(--sand);transform:translateY(-1px);}
+
+/* ---------- footer page switcher ---------- */
+.page-switch a{
+  border:2px solid var(--ink);background:var(--white);font-weight:800;
+  box-shadow:0 2px 0 var(--ink);
+}
+.page-switch a:hover{background:var(--sand);}
+.page-switch a[aria-current]{background:var(--sand);color:var(--ink);}
+
+/* ---------- hero: glow behind the mockup ---------- */
+@media (min-width:901px){ .hero-product{width:min(118%,600px);} }
+@media (max-width:900px){ .hero-product{width:min(100%,520px);margin-top:22px;} }
+.hero-product::before{
+  content:"";position:absolute;z-index:0;
+  left:50%;top:50%;width:112%;aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side, color-mix(in srgb,var(--sage) 55%,transparent) 0%, color-mix(in srgb,var(--sand) 30%,transparent) 55%, transparent 100%);
+  pointer-events:none;
+}
+
+/* ---------- ingredient chips: sticker pills ---------- */
+.chip-row{border-top:2px dotted color-mix(in srgb,var(--ink) 35%,transparent);}
+.chip-row .chip-label{color:var(--sage-deep);font-weight:700;}
+.chip{
+  color:var(--ink);font-weight:600;background:var(--white);
+  border:1.5px solid var(--ink);box-shadow:0 2px 0 var(--ink);
+  transition:transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+}
+.chip:hover,.chip:focus-visible,.chip.is-open{
+  background:var(--sand);border-color:var(--ink);color:var(--ink);
+  transform:translateY(-2px) rotate(-1.5deg);box-shadow:0 4px 0 var(--ink);
+}
+.chip .tip{background:var(--ink);color:var(--sand);font-weight:600;}
+.chip .tip::after{background:var(--ink);}
+
+/* ---------- email form: chunky candy button ---------- */
+.field{
+  background:var(--white);border:2px solid var(--ink);
+  box-shadow:0 5px 0 var(--ink);
+}
+.field:focus-within{
+  border-color:var(--ink);
+  box-shadow:0 5px 0 var(--sage-deep), 0 0 0 5px color-mix(in srgb,var(--sand) 75%,transparent);
+}
+.btn{
+  background:var(--sand);color:var(--ink);font-weight:800;
+  border:2px solid var(--ink);padding:.6rem 1.3rem;
+}
+.btn:hover{background:var(--sage);transform:translateY(-2px) rotate(-1deg);}
+.btn:active{transform:translateY(1px);}
+.form-success{
+  background:var(--sand);border:2px solid var(--ink);box-shadow:0 4px 0 var(--ink);
+  font-weight:600;
+}
+
+/* ---------- benefits: candy-dot icons ---------- */
+.benefit{border-top:2px solid var(--ink);}
+.benefit .ic{
+  width:56px;height:56px;padding:13px;border-radius:50%;
+  background:var(--sand);color:var(--ink);
+  border:2px solid var(--ink);box-shadow:0 3px 0 var(--ink);
+  transition:transform .3s var(--ease);
+}
+.benefit:nth-child(2) .ic{background:var(--sage);}
+.benefit:nth-child(3) .ic{background:var(--tangerine);}
+.benefit:hover .ic{transform:rotate(-10deg) scale(1.07);}
+.benefit p{color:var(--ink-soft);}
+
+/* ---------- stats: two juicy color blocks ---------- */
+.stats{
+  border:2px solid var(--ink);border-radius:30px;background:var(--white);
+  box-shadow:0 6px 0 var(--ink);
+}
+.stat:nth-child(1){background:var(--sand);}
+.stat:nth-child(2){background:var(--sage);}
+.stat + .stat{border-left:2px solid var(--ink);}
+.stat .num{font-weight:800;font-size:clamp(2.6rem, 1.6rem + 3.6vw, 4.4rem);}
+.stat .lab{color:var(--ink);font-weight:700;}
+@media (max-width:540px){
+  .stat + .stat{border-left:0;border-top:2px solid var(--ink);}
+}
+
+/* ---------- founders: sticker-framed photos ---------- */
+.founder-photo{
+  border:2px solid var(--ink);border-radius:32px;
+  box-shadow:8px 8px 0 var(--sand-deep);
+}
+.founder:nth-child(2) .founder-photo{box-shadow:8px 8px 0 var(--sage);}
+
+/* ---------- final call-to-action ---------- */
+.final{
+  background:radial-gradient(120% 120% at 50% 0%, #86B41B 0%, var(--ink) 72%);
+  border:2px solid var(--ink);border-radius:36px;
+  box-shadow:0 8px 0 var(--sand-deep);
+}
+.final .eyebrow{color:var(--sand);}
+.final h2{color:var(--white);}
+.final .field{background:var(--white);border-color:var(--sand);box-shadow:0 5px 0 var(--sand);}
+.final .btn{background:var(--sand);border-color:var(--ink);}
+.final .btn:hover{background:var(--white);}

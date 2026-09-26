@@ -1,0 +1,29 @@
+/* ============================================================
+   Page 2 palette — pulled from the "medium 3" mockup: butter-yellow
+   top of the box, leaf green middle, mint bottom, deep-green type,
+   lemon and lime fruit. Loaded after styles.css; only redefines tokens.
+   ============================================================ */
+:root{
+  --ink:#154A2B;        /* deep green from the box type */
+  --ink-soft:#456B52;
+  --sage:#C9E0A6;       /* soft leaf green (box mid) */
+  --sage-deep:#4E8028;  /* lime-leaf green: eyebrows, italic accents, icons */
+  --sand:#F9E58C;       /* butter yellow (box top) */
+  --sand-deep:#EBC94F;
+  --teal:#B4DFC3;       /* mint (box bottom) */
+  --teal-deep:#3F9463;
+  --lemon:#F3B928;
+  --lime:#6E9A22;
+  --paper:#FBF8E4;      /* warm lemon-cream page */
+  --paper-2:#EBF3D3;    /* faint lime-mint band */
+  --white:#FEFDF5;
+
+  --product-ratio:1400/978;
+}
+
+/* the mockup is wider than it is tall, so give it a little more room */
+@media (min-width:901px){ .hero-product{width:min(100%,540px);} }
+@media (max-width:900px){ .hero-product{width:min(100%,460px);} }
+
+/* slices sit softly out of focus behind the content */
+#drift{filter:blur(2.5px);}

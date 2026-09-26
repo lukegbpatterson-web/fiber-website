@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics 4 (same property the site already used). Visits break down by page path (/, /2/, /3/) and by utm_* parameters. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0LE6VK6ZT3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-0LE6VK6ZT3');
+</script>
+
+<title>bayzl — Fiber That Actually Tastes Good</title>
+<meta name="description" content="bayzl is a lemon lime fiber blend with better taste from all natural ingredients, 8g of fiber, and still gentle on your stomach. Join the waitlist." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://basilseedfiber.com/" />
+
+<meta property="og:title" content="bayzl — Fiber That Actually Tastes Good" />
+<meta property="og:description" content="bayzl is a lemon lime fiber blend with better taste from all natural ingredients, 8g of fiber, and still gentle on your stomach. Join the waitlist." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://basilseedfiber.com/" />
+
+<link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="backdrop" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand-group">
+      <a class="brand" href="#top">bayzl</a>
+      <a class="social-icon" href="https://www.instagram.com/lukefiber/" target="_blank" rel="noopener" aria-label="bayzl on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+          <circle cx="12" cy="12" r="4.1"/>
+          <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-cta" href="#top">Join the waitlist</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <canvas id="drift" aria-hidden="true"></canvas>
+    <div class="wrap hero-stack">
+
+      <div class="hero-copy">
+        <h1 class="reveal"><em>Better taste</em> while using all natural ingredients.</h1>
+        <p class="hero-sub reveal">8g of fiber &amp; still gentle on your stomach.</p>
+
+        <!-- EDIT: waitlist copy -->
+        <form class="signup reveal" id="join" novalidate>
+          <label class="visually-hidden" for="email-hero">Email address</label>
+          <div class="field">
+            <input id="email-hero" name="email" type="email" inputmode="email"
+                   autocomplete="email" placeholder="you@email.com" required />
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-note">We're still in the kitchen. We'll send one note when bayzl is ready, and nothing else.</p>
+        </form>
+        <p class="form-success reveal" id="success-hero" hidden>
+          You're on the list. We'll be in touch when the first batch is ready.
+        </p>
+      </div>
+
+      <!-- Hero product: transparent render. Swap assets/product-hero.png for a
+           new mockup any time — the layout adapts to whatever aspect ratio you drop in. -->
+      <div class="hero-product reveal">
+        <div class="product-wrap">
+          <div class="product-glow" aria-hidden="true"></div>
+          <img src="assets/product-hero.png" alt="bayzl lemon lime fiber sticks, 6 pack" />
+        </div>
+      </div>
+
+      <!-- EDIT: hover text for each ingredient lives in the .tip spans -->
+      <div class="chip-row reveal" role="list" aria-label="What's inside">
+        <span class="chip-label">Inside every stick</span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-acacia">Acacia Gum Fiber<span class="tip" role="tooltip" id="tip-acacia">Gentle, soluble fiber</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-phgg">PHGG<span class="tip" role="tooltip" id="tip-phgg">Prebiotic, soluble fiber</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-flavor">Lemon &amp; Lime Flavor<span class="tip" role="tooltip" id="tip-flavor">Natural citrus flavor</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-allulose">Allulose<span class="tip" role="tooltip" id="tip-allulose">Sweetener that tastes like sugar</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-monk">Monk Fruit<span class="tip" role="tooltip" id="tip-monk">Natural sweetener</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-malic">Malic Acid<span class="tip" role="tooltip" id="tip-malic">Tart, juicy flavor</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-citric">Citric Acid<span class="tip" role="tooltip" id="tip-citric">Zesty citrus tang</span></span>
+        <span class="chip" role="listitem" tabindex="0" aria-describedby="tip-ascorbic">Ascorbic Acid<span class="tip" role="tooltip" id="tip-ascorbic">Vitamin C</span></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- wave: paper -> tint -->
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="f-tint" d="M0 40 C 240 90, 480 10, 720 40 S 1200 90, 1440 44 L1440 100 L0 100 Z"/>
+      <path class="f-sand" d="M0 60 C 300 100, 560 30, 820 60 S 1240 96, 1440 66 L1440 100 L0 100 Z" opacity=".5"/>
+    </svg>
+  </div>
+
+  <!-- ============================ BENEFITS ============================ -->
+  <section class="section tint">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why bayzl</p>
+      </div>
+      <div class="benefits">
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 13.5a4.5 4.5 0 0 0 8 0" stroke-linecap="round"/><path d="M9 9h.01M15 9h.01"/></svg>
+          <h3>Tastes like a treat</h3>
+          <p>Natural lemon and lime flavor with monk fruit and allulose — bright and sweet, with none of the chalky aftertaste fiber powders are known for.</p>
+        </div>
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c3 3 4 6 4 9a4 4 0 0 1-8 0c0-3 1-6 4-9Z"/><path d="M12 12v9"/></svg>
+          <h3>More fiber, by design</h3>
+          <p>Acacia gum fiber and PHGG combine for a higher fiber count per stick than most of what's already on the shelf.</p>
+        </div>
+        <div class="benefit reveal">
+          <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="9" r="2.5"/><circle cx="16" cy="7" r="2"/><circle cx="15" cy="16" r="3"/><path d="M9 10l4 4M9 9l5-1"/></svg>
+          <h3>Digestion &amp; gut support</h3>
+          <p>Prebiotic, soluble fibers that feed your gut microbiome and keep digestion moving smoothly, while staying gentle on your stomach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- wave: tint -> paper -->
+  <div class="wave" aria-hidden="true" style="transform:scaleY(-1)">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="f-paper" d="M0 40 C 240 90, 480 10, 720 40 S 1200 90, 1440 44 L1440 100 L0 100 Z"/>
+      <path class="f-teal" d="M0 62 C 320 100, 540 34, 820 62 S 1240 96, 1440 66 L1440 100 L0 100 Z" opacity=".35"/>
+    </svg>
+  </div>
+
+  <!-- ============================ STATS ============================ -->
+  <section class="section" style="padding-block:clamp(20px,3vw,40px) 0">
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><div class="num">0g</div><div class="lab">Added sugar</div></div>
+        <div class="stat"><div class="num">8g</div><div class="lab">Fiber per stick</div></div>
+      </div>
+      <p class="stats-note reveal">Sweetened naturally with monk fruit and allulose — no sugar alcohols, no aftertaste.</p>
+    </div>
+  </section>
+
+  <!-- wave: paper -> tint -->
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="f-tint" d="M0 46 C 260 88, 520 16, 760 46 S 1220 92, 1440 50 L1440 100 L0 100 Z"/>
+      <path class="f-sand" d="M0 66 C 300 100, 560 40, 820 66 S 1240 96, 1440 70 L1440 100 L0 100 Z" opacity=".45"/>
+    </svg>
+  </div>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="section tint" id="about">
+    <div class="wrap">
+      <div class="about-mission">
+        <div class="section-head reveal" style="margin-bottom:0">
+          <p class="eyebrow">Our mission</p>
+          <h2>Nature's blueprint for better eating.</h2>
+        </div>
+        <!-- EDIT: replace with your own mission statement whenever you're ready -->
+        <div class="mission-body reveal">
+          <p class="lead">We started bayzl because every fiber supplement we tried made us choose between good taste and good nutrition.</p>
+          <p>Chalky powders, medicinal aftertastes, or so little fiber it barely counted — we think you shouldn't have to pick. bayzl is a lemon-lime fiber blend built to taste like something you crave, with more fiber packed into every stick than most of what's already out there.</p>
+          <p>We're two brothers building the fiber we always wished existed — delicious, gentle, and made from ingredients you can feel good about — and we'd love for you to be part of it from the very first batch.</p>
+        </div>
+      </div>
+
+      <!-- ============================ FOUNDERS ============================ -->
+      <!-- EDIT: swap assets/founder-luke.jpg / assets/founder-will.jpg and the bios below with your own. -->
+      <div class="founders">
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/founder-luke.jpg" alt="Luke Patterson" onerror="this.style.display='none'"/>
+            <svg class="ph" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#9DB79A"/><circle cx="50" cy="48" r="20" fill="#F6F4EC" opacity=".55"/><path d="M18 125 C 18 92, 82 92, 82 125 Z" fill="#F6F4EC" opacity=".55"/></svg>
+          </div>
+          <h3>Luke Patterson</h3>
+          <p class="role">Co-founder</p>
+          <p class="bio">I spent years dealing with gut issues, eventually recovering from both Candida and H. Pylori. Fiber made a bigger difference than almost anything else — I just couldn't stand how it tasted. bayzl is the fix I wish I'd had.</p>
+        </article>
+
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/founder-will.jpg" alt="Will Patterson" onerror="this.style.display='none'"/>
+            <svg class="ph" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#79BDB4"/><circle cx="50" cy="48" r="20" fill="#F6F4EC" opacity=".55"/><path d="M18 125 C 18 92, 82 92, 82 125 Z" fill="#F6F4EC" opacity=".55"/></svg>
+          </div>
+          <h3>Will Patterson</h3>
+          <p class="role">Co-founder</p>
+          <p class="bio">After failing to hit my daily fiber goal for years, I spent hundreds of hours formulating a fiber blend I'd actually want to drink. bayzl is that recipe, finally ready to share.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- wave: tint -> paper -->
+  <div class="wave" aria-hidden="true" style="transform:scaleY(-1)">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="f-paper" d="M0 46 C 260 88, 520 16, 760 46 S 1220 92, 1440 50 L1440 100 L0 100 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================ FINAL CTA ============================ -->
+  <section class="section" style="padding-block:clamp(20px,3vw,40px) clamp(64px,9vw,120px)">
+    <div class="wrap">
+      <div class="final reveal">
+        <p class="eyebrow">Be first</p>
+        <h2>The fiber ritual you'll actually stick with.</h2>
+        <p class="lead">We're getting bayzl ready to ship. Join the list for early access and a say in what the first batch becomes.</p>
+        <form class="signup" id="join2" novalidate>
+          <label class="visually-hidden" for="email-final">Email address</label>
+          <div class="field">
+            <input id="email-final" name="email" type="email" inputmode="email"
+                   autocomplete="email" placeholder="you@email.com" required />
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-note">We'll email once when we launch, and never share your address.</p>
+        </form>
+        <p class="form-success" id="success-final" hidden>You're on the list. Talk soon.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="brand-group">
+        <a class="brand" href="#top">bayzl</a>
+        <a class="social-icon" href="https://www.instagram.com/lukefiber/" target="_blank" rel="noopener" aria-label="bayzl on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+            <circle cx="12" cy="12" r="4.1"/>
+            <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+      <div class="tag-wrap">
+        <button class="tag tag-btn" type="button" aria-expanded="false" aria-controls="page-switch">Nature's blueprint for better eating.</button>
+        <nav class="page-switch" id="page-switch" aria-label="bayzl pages" hidden><a href="./" aria-current="page">1</a><a href="2/">2</a><a href="3/">3</a></nav>
+      </div>
+    </div>
+    <div class="legal">© <span id="year"></span> bayzl. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+  </div>
+</footer>
+
+<!-- ============================ SCRIPTS ============================ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/nav.js"></script>
+<script src="assets/main.js"></script>
+<script src="assets/bg-dust.js"></script>
+</body>
+</html>
