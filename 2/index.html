@@ -24,8 +24,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="../assets/product-hero-2.webp" fetchpriority="high" />
 <link rel="stylesheet" href="../assets/styles.css" />
 <link rel="stylesheet" href="../assets/theme-zest.css" />
+<noscript><style>.product-wrap.is-loading img,.product-wrap.is-loading .product-glow{opacity:1}</style></noscript>
 </head>
 <body>
 
@@ -78,10 +80,10 @@
 
       <!-- Hero product: transparent render (assets/product-hero-2.webp, cropped from the
            "medium 3 transparent" mockup). Set --product-ratio in assets/theme-zest.css if you swap it. -->
-      <div class="hero-product reveal">
-        <div class="product-wrap">
+      <div class="hero-product">
+        <div class="product-wrap is-loading">
           <div class="product-glow" aria-hidden="true"></div>
-          <img src="../assets/product-hero-2.webp" alt="bayzl lemon lime fiber sticks, 6 pack" />
+          <img src="../assets/product-hero-2.webp" alt="bayzl lemon lime fiber sticks, 6 pack" fetchpriority="high" />
         </div>
       </div>
 

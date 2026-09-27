@@ -1,6 +1,6 @@
 /* Background for page 2: a few soft, out-of-focus lemon and lime slices drifting
-   slowly upward. Kept low-opacity and blurred (see theme-zest.css) so it stays
-   behind the content. Three.js. */
+   slowly upward. Kept low-opacity and soft (blur is baked into the textures) so it
+   stays behind the content. Three.js. */
 (function citrusSlices(){
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const canvas = document.getElementById("drift");
@@ -42,7 +42,15 @@
       ctx.fill(); ctx.stroke();
     }
     disc(r*0.07, c.pith);
-    return new THREE.CanvasTexture(cv);
+
+    // Bake the out-of-focus softness into the texture (a CSS blur over the whole
+    // animating canvas is too heavy for phones): downscale with a small blur where
+    // supported; the GPU's smooth upscaling softens it further either way.
+    const soft = document.createElement("canvas"); soft.width = soft.height = S/2;
+    const sctx = soft.getContext("2d");
+    if("filter" in sctx) sctx.filter = "blur(1.5px)";
+    sctx.drawImage(cv, 0, 0, S/2, S/2);
+    return new THREE.CanvasTexture(soft);
   }
   const textures = {
     lemon: wheelTexture(FRUIT.lemon, 9),

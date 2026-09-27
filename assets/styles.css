@@ -30,6 +30,7 @@
   --ease:cubic-bezier(.2,.7,.2,1);
 
   --font-display:"Newsreader", Georgia, serif;
+  --shadow-rgb:33,54,42;
 
   --nav-h:67px;
   --hero-h:calc(100vh - var(--nav-h));
@@ -39,7 +40,7 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
 body{
   margin:0;
   background:var(--paper);
@@ -89,7 +90,7 @@ img,svg{display:block;max-width:100%;}
   position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
 }
 .backdrop span{
-  position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;
+  position:absolute;border-radius:50%;opacity:.55;
 }
 .backdrop span:nth-child(1){width:38vw;height:38vw;top:-14vw;right:-10vw;background:radial-gradient(circle at 30% 30%, var(--sage) 0%, transparent 70%);}
 .backdrop span:nth-child(2){width:30vw;height:30vw;top:32vh;left:-12vw;background:radial-gradient(circle at 50% 50%, var(--sand) 0%, transparent 70%);}
@@ -250,13 +251,19 @@ img,svg{display:block;max-width:100%;}
   animation:float 7s ease-in-out infinite;
 }
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.product-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;
-  filter:drop-shadow(0 40px 50px rgba(33,54,42,.28));}
-.product-glow{
-  position:absolute;left:50%;bottom:4%;width:70%;height:22%;transform:translateX(-50%);
-  background:radial-gradient(ellipse at center, color-mix(in srgb, var(--ink) 30%, transparent) 0%, transparent 72%);
-  z-index:0;filter:blur(2px);
+/* No CSS filters on the mockup or its shadow: big blur/drop-shadow filters on an animated
+   image render as boxy artifacts on phones. The grounding shadow is a plain gradient instead,
+   and the image fades in on load. */
+.product-wrap img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;
 }
+.product-glow{
+  position:absolute;left:50%;bottom:-2%;width:86%;height:30%;transform:translateX(-50%);
+  background:radial-gradient(ellipse at center, rgba(var(--shadow-rgb),.34) 0%, rgba(var(--shadow-rgb),.16) 42%, rgba(var(--shadow-rgb),0) 70%);
+  z-index:0;
+}
+.product-wrap img,.product-glow{opacity:1;transition:opacity .8s var(--ease);}
+.product-wrap.is-loading img,.product-wrap.is-loading .product-glow{opacity:0;}
 
 /* ============================ WAVE DIVIDER ============================ */
 .wave{display:block;width:100%;height:clamp(40px,6vw,84px);}

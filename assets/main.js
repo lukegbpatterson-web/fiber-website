@@ -49,6 +49,17 @@ function wireForm(formId, successId){
 wireForm("join", "success-hero");
 wireForm("join2", "success-final");
 
+/* -------------------- hero mockup: appear together with its shadow once the image has loaded -------------------- */
+(function heroMockup(){
+  const wrap = document.querySelector(".product-wrap");
+  const img = wrap && wrap.querySelector("img");
+  if(!img) return;
+  const show = ()=> wrap.classList.remove("is-loading");
+  if(img.complete) show();
+  else{ img.addEventListener("load", show); img.addEventListener("error", show); }
+  setTimeout(show, 3000); // failsafe: never leave the mockup hidden
+})();
+
 /* -------------------- ingredient tooltips: tap-to-toggle on touch -------------------- */
 if(window.matchMedia("(hover: none)").matches){
   const chips = document.querySelectorAll(".chip");

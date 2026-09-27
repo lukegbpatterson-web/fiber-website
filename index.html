@@ -30,7 +30,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="assets/product-hero.webp" fetchpriority="high" />
 <link rel="stylesheet" href="assets/styles.css" />
+<noscript><style>.product-wrap.is-loading img,.product-wrap.is-loading .product-glow{opacity:1}</style></noscript>
 </head>
 <body>
 
@@ -81,12 +83,12 @@
         </p>
       </div>
 
-      <!-- Hero product: transparent render. Swap assets/product-hero.png for a
+      <!-- Hero product: transparent render. Swap assets/product-hero.webp for a
            new mockup any time — the layout adapts to whatever aspect ratio you drop in. -->
-      <div class="hero-product reveal">
-        <div class="product-wrap">
+      <div class="hero-product">
+        <div class="product-wrap is-loading">
           <div class="product-glow" aria-hidden="true"></div>
-          <img src="assets/product-hero.png" alt="bayzl lemon lime fiber sticks, 6 pack" />
+          <img src="assets/product-hero.webp" alt="bayzl lemon lime fiber sticks, 6 pack" fetchpriority="high" />
         </div>
       </div>
 

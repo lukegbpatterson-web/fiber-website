@@ -33,7 +33,7 @@ tag [`v1-bayzl-landing`](https://github.com/lukegbpatterson-web/fiber-website/tr
   Page 1 uses the defaults.
 - Per-page background (Three.js): `assets/bg-dust.js` (1), `assets/bg-slices.js`
   (2), `assets/bg-bubbles.js` (3).
-- `assets/product-hero.png`, `product-hero-2.webp`, `product-hero-3.webp` — the
+- `assets/product-hero.webp`, `product-hero-2.webp`, `product-hero-3.webp` — the
   three transparent mockups, cropped to their visible area.
 - `google-apps-script/waitlist.gs` — Apps Script that receives waitlist
   submissions and appends them to a Google Sheet (see below).
