@@ -277,6 +277,7 @@ img,svg{display:block;max-width:100%;}
 .section{padding-block:clamp(56px,8vw,104px);}
 .section.tint{background:var(--paper-2);}
 .section-head{max-width:52ch;margin-bottom:clamp(28px,5vw,52px);}
+.section-head.is-centered{margin-inline:auto;text-align:center;}
 .section-head h2{font-size:var(--step-3);margin-top:.7rem;}
 .section-head p{margin-top:1rem;color:var(--ink-soft);font-size:var(--step-1);line-height:1.5;}
 
@@ -308,8 +309,11 @@ img,svg{display:block;max-width:100%;}
   align-items:start;
 }
 .mission-body p + p{margin-top:1.1rem;}
-.mission-body{font-size:var(--step-1);line-height:1.6;color:var(--ink);}
-.mission-body .lead{font-family:var(--font-display);font-size:var(--step-2);line-height:1.25;font-weight:400;}
+.mission-body{font-size:var(--step-1);line-height:1.6;color:var(--ink-soft);}
+.about-mission .lead,.section-head .lead{
+  margin-top:1.1rem;font-family:var(--font-display);
+  font-size:var(--step-2);line-height:1.3;font-weight:400;color:var(--ink);
+}
 
 .founders{
   margin-top:clamp(44px,6vw,72px);
