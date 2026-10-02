@@ -67,6 +67,10 @@ for (const v of cfg.variants) {
     heroW: String(w),
     heroH: String(h),
     heroAlt: v.heroAlt,
+    pageSwitch: cfg.variants.map((o, i) => {
+      const href = o.id === v.id ? "./" : (v.path ? "../" : "") + (o.path ? o.path + "/" : "");
+      return `<a href="${href}"${o.id === v.id ? ' aria-current="page"' : ""}>${i + 1}</a>`;
+    }).join(""),
     fontsHref: v.fonts,
     themeLink: v.theme ? `<link rel="stylesheet" href="${base}${v.theme}" />` : "",
     bgScript: v.background ? base + v.background : "",

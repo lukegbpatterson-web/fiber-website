@@ -55,4 +55,4 @@ Push to `main`; GitHub Pages republishes (about a minute). Deploy the Apps Scrip
 - Respects `prefers-reduced-motion` (reveals, floating box and the hero background effects turn off).
 - Responsive down to mobile; keyboard-focusable with visible focus rings.
 - Hero reveals are pure CSS; section reveals use IntersectionObserver (`assets/main.js`). Three.js (for the per-page hero background) is only fetched after the page has loaded and settled, and is skipped for reduced-motion / data-saver users.
-- The hidden footer page-switcher between variants was removed so ad traffic can't cross over between A/B/C.
+- Secret menu: click the footer tagline ("Nature's blueprint for better eating.") to reveal links to pages 1, 2 and 3.

@@ -30,6 +30,7 @@
 
 <script defer src="../assets/config.js"></script>
 <script defer src="../assets/tracking.js"></script>
+<script defer src="../assets/nav.js"></script>
 <script defer src="../assets/main.js"></script>
 </head>
 <body>
@@ -177,7 +178,7 @@
         <div class="stat"><div class="num">0g</div><div class="lab">Sugar</div></div>
         <div class="stat"><div class="num">8g</div><div class="lab">Fiber per stick</div></div>
       </div>
-      <p class="stats-note reveal">Naturally sweetened with monk fruit and allulose. No sugar alcohols, no aftertaste.</p>
+      <p class="stats-note reveal">Naturally sweetened with monk fruit and allulose.</p>
     </div>
   </section>
 
@@ -291,7 +292,10 @@
           </svg>
         </a>
       </div>
-      <p class="tag">Nature's blueprint for better eating.</p>
+      <div class="tag-wrap">
+        <button class="tag tag-btn" type="button" aria-expanded="false" aria-controls="page-switch">Nature's blueprint for better eating.</button>
+        <nav class="page-switch" id="page-switch" aria-label="bayzl pages" hidden><a href="../">1</a><a href="../2/">2</a><a href="./" aria-current="page">3</a></nav>
+      </div>
       <nav class="footer-links" aria-label="Footer"><a href="../privacy/">Privacy Policy</a></nav>
     </div>
     <div class="legal">© <span id="year">2026</span> bayzl. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
