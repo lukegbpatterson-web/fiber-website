@@ -1,17 +1,17 @@
 {
  "A": {
-  "source": "assets/product-hero.webp",
-  "sha1": "a1633a148d10bcf7c9f18cab247157a4346344fd",
+  "source": "assets/product-hero-a.webp",
+  "sha1": "1e3b1cbc13a48f6bfadb9ac17f69d1b118ebf501",
   "out": "assets/hero/a.webp"
  },
  "B": {
-  "source": "assets/product-hero-2.webp",
-  "sha1": "a7e231941c45e5af667e8e44806333f951b556de",
+  "source": "assets/product-hero-b.webp",
+  "sha1": "d39ece3ccbda069ad467e5381a9066f92139345f",
   "out": "assets/hero/b.webp"
  },
  "C": {
   "source": "assets/product-hero-c.webp",
-  "sha1": "f48c7cfd9f42da123075a9b565ed705576271b26",
+  "sha1": "1b235a872bbe2d21962ab0349fd9ee3f370af859",
   "out": "assets/hero/c.webp"
  }
 }
