@@ -21,13 +21,14 @@ var GRAPH_VERSION = "v26.0";
 var HEADERS = [
   "Timestamp", "Email", "Source",
   "variant", "utm_source", "utm_campaign", "utm_content", "fbclid",
-  "event_id", "capi_status", "q_fiber_now", "q_price"
+  "event_id", "capi_status", "q_fiber_now", "q_price", "q_channel"
 ];
 var COL = {};
 HEADERS.forEach(function (h, i) { COL[h] = i + 1; });
 
 var FIBER_OPTIONS = ["Nothing", "Powder", "Gummies", "Other"];
 var PRICE_OPTIONS = ["$8", "$12", "$16", "$20+"];
+var CHANNEL_OPTIONS = ["Amazon", "Direct"];
 var EMAIL_RE = /^[^\s@=][^\s@]*@[^\s@]+\.[^\s@]{2,}$/;
 
 function doPost(e) {
@@ -118,6 +119,10 @@ function saveSurvey_(b) {
   if (b.q_price !== undefined) {
     if (PRICE_OPTIONS.indexOf(b.q_price) < 0) return { ok: false, error: "bad answer" };
     updates.push([COL.q_price, b.q_price]);
+  }
+  if (b.q_channel !== undefined) {
+    if (CHANNEL_OPTIONS.indexOf(b.q_channel) < 0) return { ok: false, error: "bad answer" };
+    updates.push([COL.q_channel, b.q_channel]);
   }
   if (!updates.length) return { ok: false, error: "nothing to save" };
 

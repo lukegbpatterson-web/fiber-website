@@ -162,8 +162,7 @@
     body[opt.getAttribute("data-q")] = opt.getAttribute("data-v");
     post(body, TIMEOUT_MS).catch(function(){ /* optional; ignore */ });
     var survey = opt.closest("[data-survey]");
-    var answered = survey.querySelectorAll(".opt[aria-pressed=true]").length;
-    if(answered >= 2) survey.querySelector("[data-survey-thanks]").hidden = false;
+    survey.querySelector("[data-survey-thanks]").hidden = false;
   });
 
   /* -------- sticky bar: visible once both forms are off screen, until joined -------- */

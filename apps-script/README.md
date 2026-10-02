@@ -37,7 +37,7 @@ Check it: open the `/exec` URL in a browser. You should see `{"ok":true,"service
 
 ## 5. Sheet columns
 The script appends these to the right of the existing `Timestamp, Email, Source` (it fills the header cells itself on the first submit):
-`variant, utm_source, utm_campaign, utm_content, fbclid, event_id, capi_status, q_fiber_now, q_price`
+`variant, utm_source, utm_campaign, utm_content, fbclid, event_id, capi_status, q_fiber_now, q_price, q_channel` (`q_channel` is `Amazon` or `Direct`; the older two survey columns are no longer filled)
 
 - `capi_status` is `200` when Meta accepted the event. Anything else shows the HTTP code and Meta's message (e.g. `400: Invalid OAuth access token`). The row is saved either way.
 - `skipped: ...` means the token or Pixel ID property is missing.

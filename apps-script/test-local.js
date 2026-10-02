@@ -79,6 +79,8 @@ if (require.main === module && !process.argv.includes("--serve")) {
   assert.deepStrictEqual(t.post({ action: "survey", event_id: "e1", q_price: "$12" }), { ok: true });
   assert.strictEqual(t.grid[1][10], "Powder"); assert.strictEqual(t.grid[1][11], "$12");
   assert.strictEqual(t.formats["2,12"], "@"); // "$12" kept as text, not currency
+  assert.deepStrictEqual(t.post({ action: "survey", event_id: "e1", q_channel: "Amazon" }), { ok: true });
+  assert.strictEqual(t.post({ action: "survey", event_id: "e1", q_channel: "Costco" }).ok, false);
   assert.strictEqual(t.post({ action: "survey", event_id: "e1", q_price: "$99" }).ok, false);
   assert.strictEqual(t.post({ action: "survey", event_id: "nope", q_price: "$8" }).ok, false);
 
