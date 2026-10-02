@@ -1,0 +1,17 @@
+{
+ "A": {
+  "source": "assets/product-hero.webp",
+  "sha1": "a1633a148d10bcf7c9f18cab247157a4346344fd",
+  "out": "assets/hero/a.webp"
+ },
+ "B": {
+  "source": "assets/product-hero-2.webp",
+  "sha1": "a7e231941c45e5af667e8e44806333f951b556de",
+  "out": "assets/hero/b.webp"
+ },
+ "C": {
+  "source": "assets/product-hero-c.webp",
+  "sha1": "f48c7cfd9f42da123075a9b565ed705576271b26",
+  "out": "assets/hero/c.webp"
+ }
+}

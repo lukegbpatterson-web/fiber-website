@@ -1,0 +1,36 @@
+      <div class="join" data-join-wrap>
+        <form class="signup" data-join novalidate>
+          <label class="visually-hidden" for="email-{{id}}">Your email</label>
+          <div class="field">
+            <input id="email-{{id}}" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email" maxlength="254" required aria-describedby="err-{{id}}" />
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="field-error" id="err-{{id}}" role="alert"></p>
+          <p class="form-note">Waitlist members get first access and founding pricing. One email when we launch, no spam.</p>
+        </form>
+        <div class="joined" data-joined hidden tabindex="-1">
+          <p class="joined-title">You're on the list.</p>
+          <p class="joined-line">We'll email you once when bayzl is ready.</p>
+          <div class="survey" data-survey hidden>
+            <div class="q" role="group" aria-labelledby="q1-{{id}}">
+              <p class="q-text" id="q1-{{id}}">What do you use for fiber now?</p>
+              <div class="opts">
+                <button type="button" class="opt" data-q="q_fiber_now" data-v="Nothing" aria-pressed="false">Nothing</button>
+                <button type="button" class="opt" data-q="q_fiber_now" data-v="Powder" aria-pressed="false">Powder</button>
+                <button type="button" class="opt" data-q="q_fiber_now" data-v="Gummies" aria-pressed="false">Gummies</button>
+                <button type="button" class="opt" data-q="q_fiber_now" data-v="Other" aria-pressed="false">Other</button>
+              </div>
+            </div>
+            <div class="q" role="group" aria-labelledby="q2-{{id}}">
+              <p class="q-text" id="q2-{{id}}">What would you expect to pay for a 6-stick box?</p>
+              <div class="opts">
+                <button type="button" class="opt" data-q="q_price" data-v="$8" aria-pressed="false">$8</button>
+                <button type="button" class="opt" data-q="q_price" data-v="$12" aria-pressed="false">$12</button>
+                <button type="button" class="opt" data-q="q_price" data-v="$16" aria-pressed="false">$16</button>
+                <button type="button" class="opt" data-q="q_price" data-v="$20+" aria-pressed="false">$20+</button>
+              </div>
+            </div>
+            <p class="survey-thanks" data-survey-thanks hidden>Thanks, that helps.</p>
+          </div>
+        </div>
+      </div>

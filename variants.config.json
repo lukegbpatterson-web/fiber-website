@@ -1,0 +1,51 @@
+{
+  "_readme": "SINGLE SOURCE OF TRUTH for what differs between the three test pages. Everything else (copy, structure, scripts) comes from src/page.html and is identical. Per page: hero image, palette/look file (theme), font set and hero background effect. Edit this file, then run: node build.mjs",
+  "site": {
+    "url": "https://basilseedfiber.com"
+  },
+  "_robotsNote": "TEST ONLY: all three pages are noindex,nofollow during the Meta ads A/B test. To put / back in search results after the test, set variants[0].robots to \"index, follow\" and re-run node build.mjs.",
+  "variants": [
+    {
+      "id": "A",
+      "path": "",
+      "robots": "noindex, nofollow",
+      "heroImage": [
+        "assets/product-hero-a.webp",
+        "assets/product-hero.webp"
+      ],
+      "heroAlt": "bayzl lemon lime fiber blend, illustrated sage box",
+      "theme": null,
+      "_differs": "Illustrated sage box, default sage/earthy look, drifting citrus dust",
+      "fonts": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap",
+      "background": "assets/bg-dust.js"
+    },
+    {
+      "id": "B",
+      "path": "2",
+      "robots": "noindex, nofollow",
+      "heroImage": [
+        "assets/product-hero-b.webp",
+        "assets/product-hero-2.webp"
+      ],
+      "heroAlt": "bayzl lemon lime fiber blend, soft gradient box",
+      "theme": "assets/theme-zest.css",
+      "_differs": "Soft photo-gradient box, lemon-cream / leaf-green palette, floating citrus slices",
+      "fonts": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap",
+      "background": "assets/bg-slices.js"
+    },
+    {
+      "id": "C",
+      "path": "3",
+      "robots": "noindex, nofollow",
+      "heroImage": [
+        "assets/product-hero-c.webp",
+        "assets/product-hero-3.webp"
+      ],
+      "heroAlt": "bayzl lemon lime fiber blend, bold yellow and dark green box",
+      "theme": "assets/theme-treat.css",
+      "_differs": "Bold yellow-to-dark-green box, sunny 'treat' look (Fraunces type, ink outlines, candy dots), fizz bubbles",
+      "fonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..900,0..100,0..1;1,9..144,500..900,0..100,0..1&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap",
+      "background": "assets/bg-bubbles.js"
+    }
+  ]
+}

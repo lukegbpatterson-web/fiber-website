@@ -23,7 +23,6 @@
 
   --shadow-rgb:43,45,20;
   --tangerine:#FFB547;
-  --product-ratio:1500/879;
   --nav-h:68px;
 }
 
@@ -77,7 +76,6 @@ h3{font-weight:700;}
 
 /* ---------- hero: glow behind the mockup ---------- */
 @media (min-width:901px){ .hero-product{width:min(118%,600px);} }
-@media (max-width:900px){ .hero-product{width:min(100%,520px);margin-top:22px;} }
 .hero-product::before{
   content:"";position:absolute;z-index:0;
   left:50%;top:50%;width:112%;aspect-ratio:1;transform:translate(-50%,-50%);
@@ -115,7 +113,7 @@ h3{font-weight:700;}
 }
 .btn:hover{background:var(--sage);transform:translateY(-2px) rotate(-1deg);}
 .btn:active{transform:translateY(1px);}
-.form-success{
+.form-success,.joined{
   background:var(--sand);border:2px solid var(--ink);box-shadow:0 4px 0 var(--ink);
   font-weight:600;
 }
@@ -165,3 +163,12 @@ h3{font-weight:700;}
 .final .field{background:var(--white);border-color:var(--sand);box-shadow:0 5px 0 var(--sand);}
 .final .btn{background:var(--sand);border-color:var(--ink);}
 .final .btn:hover{background:var(--white);}
+
+/* ---------- survey buttons + sticky bar (waitlist flow) ---------- */
+.opt{border:2px solid var(--ink);font-weight:700;box-shadow:0 2px 0 var(--ink);}
+.opt:hover{background:var(--sand);}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--sand);}
+.final .opt{background:var(--white);color:var(--ink);border-color:var(--sand);box-shadow:0 2px 0 var(--sand);}
+.final .opt[aria-pressed="true"]{background:var(--sand);color:var(--ink);}
+.sticky-cta{border-top:2px solid var(--ink);}
+.sticky-cta .btn{box-shadow:0 3px 0 var(--ink);}

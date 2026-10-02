@@ -19,9 +19,7 @@
   --white:#FEFDF5;
 
   --shadow-rgb:21,74,43;
-  --product-ratio:1400/978;
 }
 
-/* the mockup is wider than it is tall, so give it a little more room */
+/* the mockup is wider than it is tall, so give it a little more room (desktop; phone size is set in styles.css) */
 @media (min-width:901px){ .hero-product{width:min(100%,540px);} }
-@media (max-width:900px){ .hero-product{width:min(100%,460px);} }
